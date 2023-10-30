@@ -1,5 +1,4 @@
-#include <string>
-#include <chrono>
+#include <cstring>
 #include <iostream>
 
 enum AlarmSound {
@@ -9,7 +8,6 @@ enum AlarmSound {
 };
 
 class Alarm{
-    private:
         int hour;
         int minutes; //separate class(hour, minutes) in the future with proper bounds on members
 
@@ -24,9 +22,22 @@ class Alarm{
         int minutesSnooze;
 
     public:
-        Alarm(int hour, int minutes, char *note, AlarmSound sound, bool isAlarmSet, bool activeOnWorkingDays, bool activeSnooze, int minutesSnooze);
-        Alarm(int hour, int minutes, char *note);
-        Alarm(int hour, int minutes);
+        Alarm(int      hour, 
+            int        minutes, 
+            char       *note, 
+            AlarmSound sound, 
+            bool       isAlarmSet, 
+            bool       activeOnWorkingDays, 
+            bool       activeSnooze, 
+            int        minutesSnooze
+        );
+        Alarm(int  hour, 
+            int    minutes, 
+            char   *note
+        );
+        Alarm(int hour, 
+            int   minutes
+        );
         Alarm(const Alarm &a);
         ~Alarm();
 

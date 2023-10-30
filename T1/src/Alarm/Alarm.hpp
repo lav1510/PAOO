@@ -62,4 +62,5 @@ class Alarm{
         bool compare(Alarm a);
 
         void display();
+        void short_display();
 };

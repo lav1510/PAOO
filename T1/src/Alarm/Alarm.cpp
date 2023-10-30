@@ -1,4 +1,4 @@
-#include "Alarma.hpp"
+#include "Alarm.hpp"
 #include <iostream>
 #include <cstring>
 
@@ -170,10 +170,20 @@ bool Alarm::compare(Alarm a){
 //Display
 ////////////////////////////////////////////////////////////
 void Alarm::display(){
+    std::cout<<std::endl;
     std::cout << "Rings at " << hour <<":"<< minutes<< std::endl;
     std::cout << "Note: \" " << note << " \" "<< std::endl;
     std::cout << (isAlarmSet?"Alarm is set.":"Alarm is not set.")<< std::endl;
     std::cout << (isAlarmSet?"Alarm is set on working days.":"Alarm is not set on working days.")<< std::endl;
     std::cout << (activeSnooze?"Snooze is active.":"Snooze is not active.")<< std::endl;
     std::cout << "Minutes for snooze: " << minutesSnooze << " ."<< std::endl;
+    std::cout<<std::endl;
+}
+
+void Alarm::short_display(){
+    std::cout<<std::endl;
+    std::cout << "Rings at " << hour <<":"<< minutes<< std::endl;
+    std::cout << "Note: \" " << note << " \" "<< std::endl;
+    std::cout << (isAlarmSet?"Alarm is set.":"Alarm is not set.")<< std::endl;
+    std::cout<<std::endl;
 }

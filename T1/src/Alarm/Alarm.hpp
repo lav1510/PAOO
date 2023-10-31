@@ -41,6 +41,8 @@ class Alarm{
         Alarm(const Alarm &a);
         ~Alarm();
 
+        Alarm operator=(const Alarm &a);
+
         void setHour          (int hour);
         void setMinutes       (int minutes);
         void setNote          (char *note);

@@ -39,7 +39,9 @@ Alarm::Alarm (int hour,
     this->minutes = minutes;
 
     this->note    = new char[strlen(note) + 1];
-    strcpy(this->note, note);  
+    if(note) {
+        strcpy(this->note, note);  
+    }
 }
 
 Alarm::Alarm (int hour, int minutes){
@@ -58,7 +60,9 @@ Alarm::Alarm (const Alarm &a){
     this->minutes             = a.minutes;
 
     this->note                = new char[strlen(a.note) + 1];
-    strcpy(this->note, a.note);
+    if(note) {
+        strcpy(this->note, a.note);
+    }
 
     this->sound               = a.sound;
     this->isAlarmSet          = a.isAlarmSet;
@@ -76,6 +80,28 @@ Alarm::~Alarm (){
 
     delete[] this->note;
     note = nullptr;
+}
+
+////////////////////////////////////////////////////////////
+//Assign overload
+////////////////////////////////////////////////////////////
+Alarm Alarm::operator=(const Alarm &a) {
+    if (this != &a) {
+        hour                = a.hour;
+        minutes             = a.minutes;
+        sound               = a.sound;
+        isAlarmSet          = a.isAlarmSet;
+        activeOnWorkingDays = a.activeOnWorkingDays;
+        activeSnooze        = a.activeSnooze;
+        minutesSnooze       = a.minutesSnooze;
+
+        delete[] note;
+        note                = new char[strlen(a.note) + 1];
+        if(note) {
+            strcpy(note, a.note);
+        }
+    }
+    return *this;
 }
 
 ////////////////////////////////////////////////////////////

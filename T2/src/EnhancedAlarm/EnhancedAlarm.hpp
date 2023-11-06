@@ -17,6 +17,7 @@ class EnhancedAlarm : public Alarm{
         int minutesSnooze;
 
     public:
+        EnhancedAlarm();
         EnhancedAlarm(int      hour, 
             int        minutes, 
             char       *note, 
@@ -37,4 +38,6 @@ class EnhancedAlarm : public Alarm{
         AlarmSound getSound         ();
         bool       getSnooze        ();
         int        getMinutesSnooze ();
+
+        void display();
 };

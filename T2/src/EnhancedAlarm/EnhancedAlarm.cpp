@@ -5,6 +5,13 @@
 ////////////////////////////////////////////////////////////
 //Constructors
 ////////////////////////////////////////////////////////////
+EnhancedAlarm::EnhancedAlarm() : Alarm (){
+    this->sound               = BUZZER;
+    this->activeOnWorkingDays = true;
+    this->activeSnooze        = true;
+    this->minutesSnooze       = 10; 
+}
+
 EnhancedAlarm::EnhancedAlarm(int hour, 
     int           minutes, 
     char          *note, 
@@ -13,11 +20,6 @@ EnhancedAlarm::EnhancedAlarm(int hour,
     bool          activeOnWorkingDays, 
     bool          activeSnooze,
     int           minutesSnooze): Alarm( hour, minutes, note, isAlarmSet){
-
-    setHour(hour);
-    setMinutes(minutes);
-    setNote(note);
-    setAlarm(isAlarmSet);
 
     std::cout<<"Constructor called!"<<std::endl;
 
@@ -70,4 +72,13 @@ bool EnhancedAlarm::getSnooze (){
 }
 int EnhancedAlarm::getMinutesSnooze (){
     return minutesSnooze;
+}
+
+void EnhancedAlarm::display(){
+    Alarm::display();
+    std::cout << (activeOnWorkingDays?"Alarm is set on working days.":"Alarm is not set on working days.")<< std::endl;
+    std::cout << (activeSnooze?"Snooze is active.":"Snooze is not active.")<< std::endl;
+    std::cout << "Minutes for snooze: " << minutesSnooze << " ."<< std::endl;
+    std::cout<<std::endl;
+
 }

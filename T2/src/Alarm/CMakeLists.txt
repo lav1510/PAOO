@@ -1,0 +1,1 @@
+add_library(Alarm STATIC Alarm.cpp)

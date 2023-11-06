@@ -1,0 +1,1 @@
+add_library(EnhancedAlarm STATIC EnhancedAlarm.cpp)

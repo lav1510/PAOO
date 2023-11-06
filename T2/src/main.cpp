@@ -20,6 +20,9 @@ int main(int argc, char* argv[])
 
     alarm2.display();
 
+    EnhancedAlarm eh1;
+    eh1.display();
+
     Timer timer1(0,5);
 
     alarm1.setTime(alarmMain::hour, alarmMain::minutes);

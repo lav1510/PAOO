@@ -1,6 +1,8 @@
+#pragma once
+
 #include <cstring>
 #include <iostream>
-#include "../RingTimeDevice.cpp"
+#include "../RingTimeDevice.hpp"
 
 
 class Timer : public RingTimeDevice{
@@ -9,11 +11,11 @@ class Timer : public RingTimeDevice{
         Timer(int hour, int   minutes);
         ~Timer();
 
-        void setHour          (int hour);
-        void setMinutes       (int minutes);
+        void setHour          (int hour) override;
+        void setMinutes       (int minutes) override;
 
-        int        getHour    ();
-        int        getMinutes ();
+        int        getHour    () override;
+        int        getMinutes () override;
 
         void start();
         void stop();

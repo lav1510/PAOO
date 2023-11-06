@@ -1,6 +1,8 @@
+#pragma once
+
 #include <cstring>
 #include <iostream>
-#include "../RingTimeDevice.cpp"
+#include "../RingTimeDevice.hpp"
 
 
 class Alarm: public RingTimeDevice{ 
@@ -21,13 +23,13 @@ class Alarm: public RingTimeDevice{
         Alarm(Alarm &&a);
         ~Alarm();
 
-        void setHour          (int hour);
-        void setMinutes       (int minutes);
+        void setHour          (int hour) override;
+        void setMinutes       (int minutes) override;
         void setNote          (char *note);
         void setAlarm         (bool isAlarmSet);
 
-        int        getHour          ();
-        int        getMinutes       ();
+        int        getHour          ()override;
+        int        getMinutes       ()override;
         char*      getNote          ();
         bool       getAlarm         ();
 
@@ -35,6 +37,6 @@ class Alarm: public RingTimeDevice{
 
         void display();
 
-        void setTime(int hour, int minutes)override;
-        void ring()override;
+        void setTime(int hour, int minutes) override;
+        void ring() override;
 };

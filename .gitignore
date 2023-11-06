@@ -1,4 +1,4 @@
 T1/build/*
 !T1/build/MorningAlarm
-
+T2/build/*
 .vscode/settings.json

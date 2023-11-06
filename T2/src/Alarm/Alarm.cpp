@@ -40,6 +40,9 @@ Alarm::Alarm (int hour, int minutes){
 
     this->hour    = hour;
     this->minutes = minutes;
+    
+    this->note                = new char[strlen("Note") + 1];
+    strcpy(this->note, "Note");
 }
 
 ////////////////////////////////////////////////////////////

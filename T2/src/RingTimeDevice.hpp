@@ -5,6 +5,7 @@ class RingTimeDevice {
     int minutes;
     
     public:
+        virtual ~RingTimeDevice() = default;
         virtual void setHour    (int hour)= 0;
         virtual void setMinutes (int minutes) = 0; 
         virtual int  getHour    () = 0; 

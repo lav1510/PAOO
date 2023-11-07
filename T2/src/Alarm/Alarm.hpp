@@ -6,6 +6,8 @@
 
 
 class Alarm: public RingTimeDevice{ 
+
+    protected:
         char *note;
         bool isAlarmSet;
 

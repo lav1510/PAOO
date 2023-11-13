@@ -11,6 +11,8 @@ namespace Alarms{
         protected:
             std::shared_ptr<char> note;
             bool isAlarmSet;
+            std::unique_ptr<Alarm> next;
+            std::shared_ptr<Alarm> first;
 
         public:
             Alarm();
@@ -42,5 +44,10 @@ namespace Alarms{
 
             void setTime(int hour, int minutes) override;
             void ring() override;
+
+            void setNext(std::unique_ptr<Alarm> nextAlarm);
+            std::unique_ptr<Alarm> getNext();
+            void setFirst(std::shared_ptr<Alarm> firstAlarm);
+            std::shared_ptr<Alarm> getFirst();
     };
 }

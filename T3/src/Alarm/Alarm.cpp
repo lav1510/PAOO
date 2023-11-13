@@ -13,6 +13,7 @@ namespace Alarms {
         this->hour                = 0;
         this->minutes             = 0;
         this->isAlarmSet          = true;  
+        this->next                = nullptr;
 
     }
 
@@ -27,7 +28,7 @@ namespace Alarms {
 
         this->hour                = hour;
         this->minutes             = minutes;
-
+        this->next                = nullptr;
         this->isAlarmSet          = isAlarmSet;            
     }
 
@@ -37,6 +38,7 @@ namespace Alarms {
 
         this->hour    = hour;
         this->minutes = minutes;
+        this->next                = nullptr;
     }
 
     ////////////////////////////////////////////////////////////
@@ -44,9 +46,10 @@ namespace Alarms {
     ////////////////////////////////////////////////////////////
     Alarm::Alarm(const Alarm& a) : note(std::make_shared<char>(' ')) {
         std::cout << "Copy constructor called!" << std::endl;
-        this->hour = a.hour;
-        this->minutes = a.minutes;
+        this->hour       = a.hour;
+        this->minutes    = a.minutes;
         this->isAlarmSet = a.isAlarmSet;
+        this->next       = nullptr;
     }
 
     ////////////////////////////////////////////////////////////
@@ -54,9 +57,12 @@ namespace Alarms {
     ////////////////////////////////////////////////////////////
     Alarm::Alarm(Alarm&& a) {
         std::cout << "Move constructor called" << std::endl;
-        this->hour = a.hour;
-        this->minutes = a.minutes;
+        this->hour       = a.hour;
+        this->minutes    = a.minutes;
         this->isAlarmSet = a.isAlarmSet;
+        this->next       = std::move(a.next);
+        // original next set on null to avoid ulterior moving problems
+        a.next = nullptr;
     }
 
     ////////////////////////////////////////////////////////////
@@ -88,6 +94,14 @@ namespace Alarms {
         this->isAlarmSet = isAlarmSet;
     }
 
+    void Alarm::setNext(std::unique_ptr<Alarm> nextAlarm) {
+        this->next = std::move(nextAlarm);
+    }  
+
+    void Alarm::setFirst(std::shared_ptr<Alarm> firstAlarm) {
+        this->first = firstAlarm;
+    }
+
 
     ////////////////////////////////////////////////////////////
     //Getters
@@ -106,6 +120,14 @@ namespace Alarms {
 
     bool Alarm::getAlarm (){
         return isAlarmSet;
+    }
+
+    std::unique_ptr<Alarm> Alarm::getNext(){
+        return std::move(next);
+    }
+
+    std::shared_ptr<Alarm> Alarm::getFirst(){
+        return first;
     }
 
     ////////////////////////////////////////////////////////////
@@ -133,17 +155,11 @@ namespace Alarms {
         std::cout<<std::endl;
     }
 
-    ////////////////////////////////////////////////////////////
-    //interface::setTime
-    ////////////////////////////////////////////////////////////
+
     void Alarm::setTime(int hour, int minutes) {
         this->hour    = (hour) % 60;
         this->minutes = (minutes) % 60;
     }
-
-    ////////////////////////////////////////////////////////////
-    //interface::ring
-    ////////////////////////////////////////////////////////////
     void Alarm::ring() {
         std::cout << "Alarm ringing at " << hour << ":" << minutes << std::endl;
     }

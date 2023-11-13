@@ -1,4 +1,5 @@
 #pragma once
+namespace RingTimeDevices{
 class RingTimeDevice {
     protected:
     int hour;
@@ -13,3 +14,4 @@ class RingTimeDevice {
         virtual void setTime    (int hour, int minutes) = 0; 
         virtual void ring       ()= 0; 
 };
+}

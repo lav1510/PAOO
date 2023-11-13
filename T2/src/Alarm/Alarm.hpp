@@ -5,7 +5,7 @@
 #include "../RingTimeDevice.hpp"
 
 
-class Alarm: public RingTimeDevice{ 
+class Alarm: public RingTimeDevices::RingTimeDevice{ 
 
     protected:
         char *note;

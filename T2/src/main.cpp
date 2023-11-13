@@ -3,15 +3,6 @@
 #include"EnhancedAlarm/EnhancedAlarm.hpp"
 #include <iostream>
 
-namespace alarmMain {
-    int minutes = 10;
-    int hour = 7;
-}
-
-namespace timerMain {
-    int minutes = 5;
-    int hour = 0;
-}
 
 int main(int argc, char* argv[])
 {
@@ -25,8 +16,8 @@ int main(int argc, char* argv[])
 
     Timer timer1(0,5);
 
-    alarm1.setTime(alarmMain::hour, alarmMain::minutes);
-    timer1.setTime(timerMain::hour, timerMain::minutes);
+    alarm1.setTime(10, 5);
+    timer1.setTime(0, 5);
 
     alarm1.ring();
     timer1.ring();

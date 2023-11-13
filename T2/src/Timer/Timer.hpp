@@ -5,7 +5,7 @@
 #include "../RingTimeDevice.hpp"
 
 
-class Timer : public RingTimeDevice{
+class Timer : public RingTimeDevices::RingTimeDevice{
 
     public:
         Timer(int hour, int   minutes);

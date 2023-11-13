@@ -9,7 +9,7 @@ namespace EnhancedAlarms {
     //Constructors
     ////////////////////////////////////////////////////////////
     template <typename T>
-    EnhancedAlarm<T>::EnhancedAlarm() : Alarm (){
+    EnhancedAlarm<T>::EnhancedAlarm() :  Alarms::Alarm (), enhancedNote(std::make_shared<char>(' ')){
         std::cout<<"Default constructor eha called!"<<std::endl;
         this->activeOnWorkingDays = true;
         this->activeSnooze        = true;
@@ -27,7 +27,7 @@ namespace EnhancedAlarms {
         bool          isAlarmSet, 
         bool          activeOnWorkingDays, 
         bool          activeSnooze,
-        int           minutesSnooze): Alarm( hour, minutes, note, isAlarmSet){
+        int           minutesSnooze): Alarms::Alarm( hour, minutes, note, isAlarmSet){
 
         std::cout<<"Constructor called!"<<std::endl;
 
@@ -97,7 +97,7 @@ namespace EnhancedAlarms {
 
     template <typename T>
     void EnhancedAlarm<T>::display(){
-        Alarm::display();
+        Alarms::Alarm::display();
         std::cout << (activeOnWorkingDays?"Alarm is set on working days.":"Alarm is not set on working days.")<< std::endl;
         std::cout << (activeSnooze?"Snooze is active.":"Snooze is not active.")<< std::endl;
         std::cout << "Minutes for snooze: " << minutesSnooze << " ."<< std::endl;

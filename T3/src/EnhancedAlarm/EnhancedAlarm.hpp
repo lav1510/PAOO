@@ -14,7 +14,8 @@ namespace EnhancedAlarms{
     };
 
     template<typename T>
-    class EnhancedAlarm : public Alarm{
+    class EnhancedAlarm : public Alarms::Alarm{
+            std::shared_ptr<char> enhancedNote;
             T sound;
             bool activeOnWorkingDays;
             bool activeSnooze;

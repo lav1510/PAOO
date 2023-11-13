@@ -2,6 +2,7 @@
 
 #include <cstring>
 #include <iostream>
+#include <vector>
 #include "../Alarm/Alarm.hpp"
 
 enum AlarmSound {
